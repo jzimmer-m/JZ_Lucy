@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jz-lucy"
+version = "0.1.0"
+description = "BL-251 Scar-seq and protein AUC comparisons for Project Lucy"
+requires-python = ">=3.10"
+dependencies = [
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "openpyxl>=3.1",
+    "pandas>=2.1",
+    "pyyaml>=6.0",
+    "scipy>=1.11",
+    "seaborn>=0.13",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

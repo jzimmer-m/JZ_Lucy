@@ -1,0 +1,50 @@
+# Paths are resolved from this repo root.
+lnp_colors: config/bl251_lnp_colors.csv
+
+lnp_aliases:
+  86/56 11: 86/56
+  86/56 11 member pool: 86/56
+  86/56 11-plex: 86/56
+  86/56 20: 86/56
+  86/56 20-plex: 86/56
+
+comparison_pairs:
+  - x_dataset: in vitro Scar-seq
+    y_dataset: in vitro protein expression
+  - x_dataset: in vivo Scar-seq
+    y_dataset: in vitro protein expression
+
+figure_style:
+  n_cols: 3
+  subplot_width: 5.6
+  subplot_height: 4.9
+  font_scale: 1.55
+  point_size: 96
+  log_scale: true
+
+scarseq:
+  - dataset: in vivo Scar-seq
+    cyto_abund: data/processed/bl251_invivo_cyto_abundance.csv
+
+  - dataset: in vitro Scar-seq
+    cyto_abund: data/processed/bl251_invitro_cyto_abundance.csv
+
+protein:
+  - protein_expression: data/processed/bl251_invitro_protein_expression.csv
+    metric: In vitro protein expression at 40 ng
+    dose_ng: 40
+
+outputs:
+  auc_csv: outputs/bl251_auc_summary.csv
+  comparison_csv: outputs/bl251_comparison_values_40ng.csv
+  figures:
+    - figure_pdf: outputs/figures/bl251_auc_invitro_scarseq_vs_invitro_protein.pdf
+      figure_png: outputs/figures/bl251_auc_invitro_scarseq_vs_invitro_protein.png
+      comparison_pairs:
+        - x_dataset: in vitro Scar-seq
+          y_dataset: in vitro protein expression
+    - figure_pdf: outputs/figures/bl251_auc_invivo_scarseq_vs_invitro_protein.pdf
+      figure_png: outputs/figures/bl251_auc_invivo_scarseq_vs_invitro_protein.png
+      comparison_pairs:
+        - x_dataset: in vivo Scar-seq
+          y_dataset: in vitro protein expression
